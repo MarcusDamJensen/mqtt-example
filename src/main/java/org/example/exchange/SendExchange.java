@@ -13,6 +13,8 @@ public class SendExchange {
         // Setup Socket
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        factory.setUsername("marcus");
+        factory.setPassword("admin");
 
         // Connect to socket
         try (Connection connection = factory.newConnection();

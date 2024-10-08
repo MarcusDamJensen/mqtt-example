@@ -12,6 +12,9 @@ public class RecvExchange {
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        factory.setUsername("marcus");
+        factory.setPassword("admin");
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
