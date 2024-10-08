@@ -1,4 +1,4 @@
-package org.example.sender;
+package org.example.basic;
 
 import com.rabbitmq.client.*;
 

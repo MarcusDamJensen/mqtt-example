@@ -19,3 +19,56 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task recvJar(type: Jar) {
+    archiveBaseName.set('basic/recv')
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'org.example.basic.Recv'
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task sendJar(type: Jar) {
+    archiveBaseName.set('basic/send')
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'org.example.basic.Send'
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task recvExchangeJar(type: Jar) {
+    archiveBaseName.set('exchange/recv')
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'org.example.exchange.RecvExchange'
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task sendExchangeJar(type: Jar) {
+    archiveBaseName.set('exchange/send')
+    from sourceSets.main.output
+    manifest {
+        attributes 'Main-Class': 'org.example.exchange.SendExchange'
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+tasks.build.dependsOn recvJar
+tasks.build.dependsOn sendJar
+tasks.build.dependsOn recvExchangeJar
+tasks.build.dependsOn sendExchangeJar
