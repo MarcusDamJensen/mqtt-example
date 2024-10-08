@@ -8,7 +8,6 @@ import com.rabbitmq.client.DeliverCallback;
 public class RecvExchange {
 
     private final static String EXCHANGE_NAME = "exchange-name";
-    private final static String EXCHANGE_MODE = "fanout";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -17,7 +16,14 @@ public class RecvExchange {
         Channel channel = connection.createChannel();
 
         // Declare new queue + Bind it to the exchange
-        String queueName = channel.queueDeclare().getQueue();
+        final String queueName;
+        if (argv.length < 1) {
+            queueName = channel.queueDeclare().getQueue();
+        } else {
+            queueName = String.join(" ", argv);
+            channel.queueDeclare(queueName, false, false, false, null);
+        }
+
         channel.queueBind(queueName, EXCHANGE_NAME, "");
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
