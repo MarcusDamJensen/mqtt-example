@@ -1,0 +1,16 @@
+{
+  "type":"object",
+  "javaType": "org.example.pojo.ItemPOJO",
+  "javaInterfaces": ["org.example.pojo.JsonDomainObject"],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "integer"
+    }
+  }
+}

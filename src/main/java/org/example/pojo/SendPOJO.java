@@ -29,11 +29,10 @@ public class SendPOJO {
              Channel channel = connection.createChannel()) {
 
             // Setup POJO
-            JsonDomainObject item = new ItemPOJO(
-                    argv[0],
-                    argv[1],
-                    Integer.parseInt(argv[2])
-            );
+            ItemPOJO item = new ItemPOJO();
+            item.setName(argv[0]);
+            item.setCategory(argv[1]);
+            item.setAmount(Integer.parseInt(argv[2]));
 
             // Serialize data
             Jsonb jsob = JsonbProvider.provider().create().build();
