@@ -3,6 +3,9 @@
   "javaType": "org.example.pojo.ItemPOJO",
   "javaInterfaces": ["org.example.pojo.JsonDomainObject"],
   "properties": {
+    "metadata": {
+      "$ref": "metadataPOJOSchema.json"
+    },
     "name": {
       "type": "string"
     },
@@ -13,4 +16,5 @@
       "type": "integer"
     }
   }
+
 }

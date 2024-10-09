@@ -36,6 +36,8 @@ jsonSchema2Pojo {
     useTitleAsClassname = false
     sourceType = 'jsonschema'
 
+    removeOldOutput = true
+
     includeAdditionalProperties = false
 }
 
