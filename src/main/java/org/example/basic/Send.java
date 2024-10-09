@@ -17,9 +17,6 @@ public class Send {
         try (Connection connection = factory.newConnection();
             Channel channel = connection.createChannel()) {
 
-            // Connect to correct queue
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-
             // Send data to queue
             String dataToSend = "Hello, World!";
             channel.basicPublish("", QUEUE_NAME, null, dataToSend.getBytes());

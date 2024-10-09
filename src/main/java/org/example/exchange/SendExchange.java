@@ -20,9 +20,6 @@ public class SendExchange {
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
 
-            // Declare exchange
-            channel.exchangeDeclare(EXCHANGE_NAME, EXCHANGE_MODE);
-
             // Send data to queue
             String dataToSend = argv.length < 1 ? "info: Hello world!" :
                     String.join(" ", argv);

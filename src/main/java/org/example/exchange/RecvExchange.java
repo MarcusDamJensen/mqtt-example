@@ -24,10 +24,7 @@ public class RecvExchange {
             queueName = channel.queueDeclare().getQueue();
         } else {
             queueName = String.join(" ", argv);
-            channel.queueDeclare(queueName, false, false, false, null);
         }
-
-        channel.queueBind(queueName, EXCHANGE_NAME, "");
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
