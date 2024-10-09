@@ -29,10 +29,15 @@ public class SendPOJO {
              Channel channel = connection.createChannel()) {
 
             // Setup POJO
+            MetadataPOJO metadataPOJO = new MetadataPOJO();
+            metadataPOJO.setId(69L);
+
             ItemPOJO item = new ItemPOJO();
+            item.setMetadata(metadataPOJO);
             item.setName(argv[0]);
             item.setCategory(argv[1]);
-            item.setAmount(Integer.parseInt(argv[2]));
+            item.setAmount(Long.parseLong(argv[2]));
+
 
             // Serialize data
             Jsonb jsob = JsonbProvider.provider().create().build();

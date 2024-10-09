@@ -2,6 +2,8 @@
   "type": "object",
   "javaType": "org.example.pojo.MetadataPOJO",
   "properties": {
-    "id": "integer"
+    "id": {
+      "type": "integer"
+    }
   }
 }

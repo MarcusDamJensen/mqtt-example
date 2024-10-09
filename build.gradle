@@ -38,7 +38,11 @@ jsonSchema2Pojo {
 
     removeOldOutput = true
 
+    useLongIntegers = true
+
     includeAdditionalProperties = false
+
+    includeConstructors = true
 }
 
 test {
