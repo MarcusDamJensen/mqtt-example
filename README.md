@@ -55,3 +55,20 @@ java -jar .\build\libs\exchange\send-1.0-SNAPSHOT.jar my data is awesome!
 ```
 
 Here both queues should print the message from the sender.
+
+## POJO Serialization
+The following example uses the base of Exchange, this will however send a message by serializing with jsonb.
+
+Navigate to .\build\libs\pojo\ in here open 2 new consoles. For the first setup the consumer with the command:
+
+```
+java -jar .\build\libs\exchange\recv-1.0-SNAPSHOT.jar hello
+```
+
+With the other console enter the command:
+
+```
+java -jar .\build\libs\exchange\send-1.0-SNAPSHOT.jar Cork Bottles 2
+```
+
+Now we should serialize an item object and send it over RabbitMQ to the consumer.

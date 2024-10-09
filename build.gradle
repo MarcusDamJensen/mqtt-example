@@ -11,10 +11,17 @@ repositories {
 }
 
 dependencies {
+    // Junit
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // RabbitMQ
     implementation 'com.rabbitmq:amqp-client:5.22.0'
-    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
+
+    // For Jsonb
+    implementation 'javax.json.bind:javax.json.bind-api:1.0'
+    implementation 'org.eclipse:yasson:1.0'
+    implementation 'org.glassfish:javax.json:1.1'
 }
 
 test {

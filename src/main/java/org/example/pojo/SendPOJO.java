@@ -4,6 +4,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.spi.JsonbProvider;
+
 public class SendPOJO {
     private final static String EXCHANGE_NAME = "exchange-name";
 
@@ -26,14 +29,15 @@ public class SendPOJO {
              Channel channel = connection.createChannel()) {
 
             // Setup POJO
-            POJOBase item = new ItemPOJO(
+            JsonDomainObject item = new ItemPOJO(
                     argv[0],
                     argv[1],
                     Integer.parseInt(argv[2])
             );
 
             // Serialize data
-            String serializedItem = POJOBase.PojoToString(item);
+            Jsonb jsob = JsonbProvider.provider().create().build();
+            String serializedItem = jsob.toJson(item);
 
             // Send data to queue
             channel.basicPublish(EXCHANGE_NAME, "", null, serializedItem.getBytes());

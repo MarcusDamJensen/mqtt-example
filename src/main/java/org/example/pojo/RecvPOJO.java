@@ -5,6 +5,9 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
+import javax.json.bind.Jsonb;
+import javax.json.bind.spi.JsonbProvider;
+
 public class RecvPOJO {
 
     private final static String EXCHANGE_NAME = "exchange-name";
@@ -33,7 +36,8 @@ public class RecvPOJO {
 
             System.out.println("Received message: " + message);
 
-            POJOBase item = POJOBase.JsonToPojo(message, ItemPOJO.class);
+            Jsonb jsob = JsonbProvider.provider().create().build();
+            ItemPOJO item = jsob.fromJson(message, ItemPOJO.class);
 
             System.out.println(" [" + queueName + "] Received '" + item.toString() + "'");
         };
