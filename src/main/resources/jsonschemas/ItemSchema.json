@@ -4,7 +4,7 @@
   "javaInterfaces": ["org.example.pojo.JsonDomainObject"],
   "properties": {
     "metadata": {
-      "$ref": "metadataPOJOSchema.json"
+      "$ref": "MetadataSchema.json"
     },
     "name": {
       "type": "string"

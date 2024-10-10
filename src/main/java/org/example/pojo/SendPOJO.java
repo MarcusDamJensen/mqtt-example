@@ -29,8 +29,9 @@ public class SendPOJO {
              Channel channel = connection.createChannel()) {
 
             // Setup POJO
-            MetadataPOJO metadataPOJO = new MetadataPOJO();
+            Metadata metadataPOJO = new Metadata();
             metadataPOJO.setId(69L);
+            metadataPOJO.setObjectType("Item");
 
             ItemPOJO item = new ItemPOJO();
             item.setMetadata(metadataPOJO);

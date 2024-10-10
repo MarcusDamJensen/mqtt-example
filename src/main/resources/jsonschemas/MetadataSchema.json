@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "javaType": "org.example.pojo.Metadata",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "objectType": {
+      "type": "string"
+    }
+  }
+}
