@@ -72,3 +72,11 @@ java -jar .\build\libs\exchange\send-1.0-SNAPSHOT.jar Cork Bottles 2
 ```
 
 Now we should serialize an item object and send it over RabbitMQ to the consumer.
+
+# Extra Information
+When building gradle the pojo objects should be generated from the schema files, however this can also be done manually by running the command: 
+
+```
+gradle :generateJsonSchema2Pojo
+```
+
